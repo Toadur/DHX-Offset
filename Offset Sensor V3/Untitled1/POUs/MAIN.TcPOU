@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="MAIN" Id="{680b4bc1-2fdc-4552-9c70-ccc22fa3fe48}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR	
+	TxD : ARRAY[0..1] OF BYTE;
+	RxD : ARRAY[0..255] OF BYTE;
+	State : ComState := ComState.Idle;
+	SendD : SendData;
+	ReceiveD : ReceiveData;
+	TxBuffer AT %Q* : ComBuffer;
+	RxBuffer AT %I* : ComBuffer;
+	SCounter : INT; 
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE State OF
+	
+	ComState.Idle: 
+	
+		TxD[0] := 16#01;
+		TxD[1] := 16#87;
+		State := ComState.Send;
+	
+	ComState.Send:
+	
+		SendD(
+			pSendData := ADR(TxD),
+			Length := SIZEOF(TxD),
+			TXBuffer := TxBuffer
+		);	
+		
+		SCounter := SCounter + 1;
+		
+		IF SendD.Error <> COMERROR_NOERROR THEN
+			State := ComState.Idle;
+			ADSLOGSTR(msgCtrlMask := ADSLOG_MSGTYPE_ERROR,
+				msgFmtStr := 'Error %s',
+				strArg := 'in Send State');
+		END_IF
+		
+		IF NOT SendD.Busy THEN
+			State := ComState.Recv;
+		END_IF
+		
+		
+	ComState.Recv:
+	
+		ReceiveD(
+			pReceiveData := ADR(RxD),
+			SizeReceiveData := SIZEOF(RxD),
+			RXBuffer := RxBuffer 
+		);
+		
+		IF ReceiveD.Error <> COMERROR_NOERROR THEN
+			State := ComState.Idle;
+			ADSLOGSTR(msgCtrlMask := ADSLOG_MSGTYPE_ERROR,
+				msgFmtStr := 'Error %s',
+				strArg := 'in Receive State');
+		END_IF
+	
+		IF ReceiveD.RxTimeout THEN
+			State := ComState.Idle;
+			ADSLOGSTR(msgCtrlMask := ADSLOG_MSGTYPE_ERROR, 
+				msgFmtStr := 'Timeout %s',
+				strArg := 'Receive timed out');
+		END_IF
+		
+		IF NOT ReceiveD.busy THEN
+			
+			IF ReceiveD.DataReceived THEN 
+				State := ComState.Process;
+			ELSE 
+				State := ComState.Send;
+			END_IF
+		
+		END_IF
+		
+	ComState.Process:
+		
+		State := ComState.Recv;	
+		ADSLOGSTR(msgCtrlMask := ADSLOG_MSGTYPE_LOG,
+				msgFmtStr := 'Log %s',
+				strArg := 'Data received');
+				
+END_CASE]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="23" Count="15" />
+      <LineId Id="114" Count="1" />
+      <LineId Id="39" Count="10" />
+      <LineId Id="113" Count="0" />
+      <LineId Id="50" Count="30" />
+      <LineId Id="100" Count="0" />
+      <LineId Id="82" Count="6" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

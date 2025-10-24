@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <DUT Name="ComState" Id="{6439d4cc-5dd1-49c3-9aab-80678a68b937}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE ComState :
+(
+	Idle, Send, Recv, Process 
+);
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>

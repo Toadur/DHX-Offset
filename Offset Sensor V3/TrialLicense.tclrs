@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<TcLicenseInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2011/11/TcLicenseInfo">
+	<LicenseInfo>
+		<SystemId>{90B0548D-61EB-3247-7BEE-F25478703B31}</SystemId>
+		<IssueTime>2025-10-23T14:35:00</IssueTime>
+		<ExpireTime>2025-10-31T00:00:00</ExpireTime>
+		<LicenseKey>94a7b74e8043d4305d907b63f6d88a75776d147327225c80296b239845309938573c4bf5cb9f6f33dfdd5391ac2f354ad8e6ec684680185deb5a8be30b8d7b228ecbe0cfc0a9930bdfd81319850aa251a7a772b2166e61ea1f034c567f3bcf79153bb58931b8d4f7a88811c2fd5e3abf5c7cb0c442711df836a9c1aea8804e19fd62803d8c112c855a1d944a594d05f45586afc7dbf831aa5bad3f5225186f753d3edff40d7d00582504de8c7906a9101210d909550ac6ba6468378184b8b79139428baec7eae02327bfd0284e7b67cdc58d1ff824b0c9ccd3fd914bdd311e74b99c1f8c33535e78175113f880d853cebf663b1ab2d57fdb2124d37961a13c73</LicenseKey>
+		<License>
+			<LicenseId>{FDEB49FC-E8D5-4978-96BC-06E257B23F2D}</LicenseId>
+			<Name>TC3 Virtual-Serial-COM</Name>
+			<OrderNo>TF6360</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{BCA6EE0A-9CE1-4D3F-98CA-413ABC0D94FD}</LicenseId>
+			<Name>TC3 Serial-Communication</Name>
+			<OrderNo>TF6340</OrderNo>
+		</License>
+	</LicenseInfo>
+</TcLicenseInfo>
