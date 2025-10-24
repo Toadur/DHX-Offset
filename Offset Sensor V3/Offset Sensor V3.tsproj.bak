@@ -86,20 +86,20 @@
 		<ImageData Id="1001">424dd6020000000000003600000028000000100000000e0000000100180000000000a002000000000000000000000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ff808080808080808080808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080808080808080c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080808080808080c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080808080808080c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080808080808080c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080808080808080c0c0c0c0c0c0808080ff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c00000ffc0c0c0c0c0c0c0c0c0808080ff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c00000ffc0c0c0c0c0c0c0c0c0808080ff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c000ff00c0c0c0c0c0c0c0c0c0808080ff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ff</ImageData>
 		<ImageData Id="1002">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ff808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff</ImageData>
 	</ImageDatas>
-	<Project ProjectGUID="{1EB34230-C384-4963-A832-E3ECA7D62AD4}" Target64Bit="true" ShowHideConfigurations="#x3c6">
+	<Project ProjectGUID="{1EB34230-C384-4963-A832-E3ECA7D62AD4}" TargetNetId="5.94.205.148.1.1" Target64Bit="true" ShowHideConfigurations="#x3c6">
 		<System>
 			<Settings>
 				<IoIdleTask CycleTime="500000"/>
 			</Settings>
 			<Tasks>
-				<Task Id="3" Priority="20" CycleTime="15000000" AmsPort="350" AdtTasks="true">
+				<Task Id="3" Priority="20" CycleTime="50000" AmsPort="350" AdtTasks="true">
 					<Name>PlcTask</Name>
 				</Task>
 			</Tasks>
 		</System>
 		<Plc>
 			<Project GUID="{2C7CD9C0-8B42-4860-B2BB-5C51CA0C7280}" Name="Untitled1" PrjFilePath="Untitled1\Untitled1.plcproj" TmcFilePath="Untitled1\Untitled1.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Untitled1\Untitled1.tmc" TmcHash="{6DA6852C-3E3C-E2A3-48E5-CF929E5EE2D5}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Untitled1\Untitled1.tmc" TmcHash="{09043EDC-2D15-F524-D00A-47AF285D8282}">
 					<Name>Untitled1 Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -108,12 +108,68 @@
 							<Name>MAIN.RxBuffer</Name>
 							<Type GUID="{8053F9A0-2AFE-604E-9F24-1602A2293D6D}" Namespace="Tc2_SerialCom">ComBuffer</Type>
 						</Var>
+						<Var>
+							<Name>MAIN.Status</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Ta</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Rr</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Ia</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Bf</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Pe</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Fe</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Oe</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Il</Name>
+							<Type>USINT</Type>
+						</Var>
 					</Vars>
 					<Vars VarGrpType="2" AreaNo="1">
 						<Name>PlcTask Outputs</Name>
 						<Var>
 							<Name>MAIN.TxBuffer</Name>
 							<Type GUID="{8053F9A0-2AFE-604E-9F24-1602A2293D6D}" Namespace="Tc2_SerialCom">ComBuffer</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Tr</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Ra</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Ir</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Sc</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Ol</Name>
+							<Type>USINT</Type>
 						</Var>
 					</Vars>
 					<Contexts>
@@ -124,7 +180,7 @@
 								<OTCID>#x02010030</OTCID>
 							</ManualConfig>
 							<Priority>20</Priority>
-							<CycleTime>1500000000</CycleTime>
+							<CycleTime>5000000</CycleTime>
 						</Context>
 					</Contexts>
 					<TaskPouOids>
@@ -134,7 +190,7 @@
 			</Project>
 		</Plc>
 		<Io>
-			<Device Id="3" DevType="111" DevFlags="#x0003" AmsPort="28675" AmsNetId="145.94.179.99.4.1" RemoteName="Device 3 (EtherCAT)" InfoImageId="3">
+			<Device Id="3" DevType="111" DevFlags="#x0003" AmsPort="28675" AmsNetId="5.94.205.148.4.1" RemoteName="Device 3 (EtherCAT)" InfoImageId="3">
 				<Name>Device 3 (EtherCAT)</Name>
 				<AddressInfo>
 					<Pnp>
@@ -165,6 +221,8 @@
 							<MBoxUserCmdData>0200030009000000120000000300000000000000000000000000000000000000200080060100000001456e61626c652068616c66206475706c657800</MBoxUserCmdData>
 							<MBoxUserCmdData>020003000a0000000a00000003000000000000000000000000000000000000002074400002000000040044617461206672616d6500</MBoxUserCmdData>
 							<MBoxUserCmdData>020003000a00000008000000030000000000000000000000000000000000000020734000020000000600426175647261746500</MBoxUserCmdData>
+							<MBoxUserCmdData>0200030009000000280000000300000000000000000000000000000000000000200080070100000000456e61626c6520706f696e7420746f20706f696e7420636f6e6e656374696f6e202852533432322900</MBoxUserCmdData>
+							<MBoxUserCmdData>0200030009000000280000000300000000000000000000000000000000000000207540040100000000456e61626c6520706f696e7420746f20706f696e7420636f6e6e656374696f6e202852533432322900</MBoxUserCmdData>
 							<Pdo Name="TxPDO-Map Inputs" Index="#x1a00" Flags="#x0010">
 								<ExcludePdo>#x1a01</ExcludePdo>
 								<ExcludePdo>#x1a02</ExcludePdo>
@@ -1637,6 +1695,13 @@
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500820000403}" Id="#x02030010"/>
 		<OwnerA Name="TIPC^Untitled1^Untitled1 Instance">
 			<OwnerB Name="TIID^Device 3 (EtherCAT)^Term 1 (EK1100)^Term 2 (EL6021)">
+				<Link VarA="PlcTask Inputs^MAIN.Bf" VarB="COM TxPDO-Map Inputs^Status^Buffer full"/>
+				<Link VarA="PlcTask Inputs^MAIN.Fe" VarB="COM TxPDO-Map Inputs^Status^Framing error"/>
+				<Link VarA="PlcTask Inputs^MAIN.Ia" VarB="COM TxPDO-Map Inputs^Status^Init accepted"/>
+				<Link VarA="PlcTask Inputs^MAIN.Il" VarB="COM TxPDO-Map Inputs^Status^Input length"/>
+				<Link VarA="PlcTask Inputs^MAIN.Oe" VarB="COM TxPDO-Map Inputs^Status^Overrun error"/>
+				<Link VarA="PlcTask Inputs^MAIN.Pe" VarB="COM TxPDO-Map Inputs^Status^Parity error"/>
+				<Link VarA="PlcTask Inputs^MAIN.Rr" VarB="COM TxPDO-Map Inputs^Status^Receive request"/>
 				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[0]" VarB="COM TxPDO-Map Inputs^Data In 0"/>
 				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[10]" VarB="COM TxPDO-Map Inputs^Data In 10"/>
 				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[11]" VarB="COM TxPDO-Map Inputs^Data In 11"/>
@@ -1659,6 +1724,13 @@
 				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[7]" VarB="COM TxPDO-Map Inputs^Data In 7"/>
 				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[8]" VarB="COM TxPDO-Map Inputs^Data In 8"/>
 				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[9]" VarB="COM TxPDO-Map Inputs^Data In 9"/>
+				<Link VarA="PlcTask Inputs^MAIN.Status" VarB="COM TxPDO-Map Inputs^Status"/>
+				<Link VarA="PlcTask Inputs^MAIN.Ta" VarB="COM TxPDO-Map Inputs^Status^Transmit accepted"/>
+				<Link VarA="PlcTask Outputs^MAIN.Ir" VarB="COM RxPDO-Map Outputs^Ctrl^Init request"/>
+				<Link VarA="PlcTask Outputs^MAIN.Ol" VarB="COM RxPDO-Map Outputs^Ctrl^Output length"/>
+				<Link VarA="PlcTask Outputs^MAIN.Ra" VarB="COM RxPDO-Map Outputs^Ctrl^Receive accepted"/>
+				<Link VarA="PlcTask Outputs^MAIN.Sc" VarB="COM RxPDO-Map Outputs^Ctrl^Send continues"/>
+				<Link VarA="PlcTask Outputs^MAIN.Tr" VarB="COM RxPDO-Map Outputs^Ctrl^Transmit request"/>
 				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[0]" VarB="COM RxPDO-Map Outputs^Data Out 0"/>
 				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[10]" VarB="COM RxPDO-Map Outputs^Data Out 10"/>
 				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[11]" VarB="COM RxPDO-Map Outputs^Data Out 11"/>

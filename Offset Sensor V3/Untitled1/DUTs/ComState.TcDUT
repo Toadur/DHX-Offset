@@ -5,7 +5,7 @@
 {attribute 'strict'}
 TYPE ComState :
 (
-	Idle, Send, Recv, Process 
+	Idle, Send, Recv, Process, WaitForReceive, WaitForTransmit, WaitForInit, WaitForNotInit 
 );
 END_TYPE]]></Declaration>
   </DUT>
