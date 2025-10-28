@@ -32,78 +32,83 @@ VAR
 	I : INT;
 	OldRR : BOOL := Rr;
 	FbClearBuffer  : ClearComBuffer;
+	RxData : ARRAY[0..21] OF BYTE;
+	FBRecv : ReceiveData;
+	LatestReading : BYTE;
+	//OldRa : BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[CASE State OF
+      <ST><![CDATA[(**Ignore all variables and states that don't appear in the code
+Please make a new branch before writing any modifications*)
+
+CASE State OF
 	
-	ComState.Idle: 
+	ComState.Idle: //Idle state, the algorithm begins here
 	
 		
-		Ir := TRUE;
-		State := ComState.WaitForInit;
+		Ir := TRUE; //Set Init request to true
+		State := ComState.WaitForInit; //wait for init accepted
 	
 	ComState.WaitForInit:
 	
-		IF Ia THEN
-			Ir := FALSE;
-			State := ComState.WaitForNotInit;
+		IF Ia THEN //if init accepted turns true
+			Ir := FALSE; //revert the request
+			State := ComState.WaitForNotInit; //wait for init to be inverted
 		END_IF
 	
 	ComState.WaitForNotInit:
 
-		IF NOT Ia THEN
-			State := ComState.Send;
+		IF NOT Ia THEN //init inverted
+			State := ComState.Send; //go to send state
 		END_IF	
 	
 	ComState.Send:
 	
-		Ol := 2;
-		TxBuffer.Buffer[0] := 16#01;
-		TxBuffer.Buffer[1] := 16#87;
-		Tr := TRUE;
+		Ol := 2; //output length = 2 (length of request is 2 bytes)
+		TxBuffer.Buffer[0] := 16#01; //first byte (sensor's address)
+		TxBuffer.Buffer[1] := 16#87; //second byte (data stream request)
+		Tr := TRUE; //set Transmission Request to true
 		SCounter := SCounter + 1;
-		State := ComState.WaitForTransmit;
+		State := ComState.WaitForTransmit; //wait for Transmission to be accepted by terminal
 		
 	ComState.WaitForTransmit:
-		IF Ta THEN
-			State := ComState.WaitForReceive;
+		IF Ta THEN //Transmission accepted
+			State := ComState.WaitForReceive; //wait for readings
 		END_IF
 		
 	ComState.WaitForReceive:
 		
-		IF Bf OR NOT RxBuffer.Buffer[21] = 0 THEN
-			State := ComState.ClearBuffer;
-		ELSE 
-			IF NOT Rr = OldRR THEN
-				OldRR := Rr;
-				Ra := TRUE;				
-				State := ComState.Recv;
-			END_IF
+		IF NOT Rr = OldRR THEN //Receive Request inverted means new data available
+			OldRR := Rr; //keep track of old value
+			Ra := TRUE;	//accept the receive request
+			State := ComState.RecvSetUp; //set up the receive function block
 		END_IF
 		
+	ComState.RecvSetUp:
+	
+		FBRecv(
+			pReceiveData := ADR(RxData), //pointer to where data should go
+			SizeReceiveData := SIZEOF(RxData), 
+			RXbuffer := RxBuffer //buffer where data is received
+		);
+		State := ComState.Recv;
 	ComState.Recv:
 	
-		State := ComState.Process;
-		
-	ComState.Process:
-		ADSLOGSTR(msgCtrlMask := ADSLOG_MSGTYPE_ERROR OR ADSLOG_MSGTYPE_LOG,
+		IF FBRecv.DataReceived THEN
+			ADSLOGSTR(msgCtrlMask := ADSLOG_MSGTYPE_ERROR OR ADSLOG_MSGTYPE_LOG,
 				msgFmtStr := 'Log %s',
 				strArg := 'Data received');
-		IF Bf OR NOT RxBuffer.Buffer[21] = 0 THEN
-			State := ComState.ClearBuffer;
-		ELSE 
-			State := ComState.WaitForReceive;	
+			LatestReading := RxData[21];
+			State := ComState.WaitForReceive; //wait for new data
 		END_IF
-		
-	ComState.ClearBuffer:
-		
-		FbClearBuffer(Buffer := RxBuffer);
-		State := ComState.WaitForReceive;
 				
 END_CASE]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
+      <LineId Id="376" Count="0" />
+      <LineId Id="378" Count="0" />
+      <LineId Id="377" Count="0" />
       <LineId Id="23" Count="4" />
       <LineId Id="150" Count="0" />
       <LineId Id="223" Count="1" />
@@ -131,26 +136,19 @@ END_CASE]]></ST>
       <LineId Id="202" Count="0" />
       <LineId Id="178" Count="0" />
       <LineId Id="294" Count="0" />
-      <LineId Id="302" Count="0" />
-      <LineId Id="304" Count="1" />
-      <LineId Id="307" Count="3" />
+      <LineId Id="307" Count="1" />
+      <LineId Id="380" Count="0" />
+      <LineId Id="310" Count="0" />
       <LineId Id="306" Count="0" />
-      <LineId Id="300" Count="0" />
       <LineId Id="113" Count="0" />
       <LineId Id="50" Count="1" />
       <LineId Id="56" Count="0" />
-      <LineId Id="100" Count="0" />
-      <LineId Id="82" Count="0" />
-      <LineId Id="282" Count="1" />
-      <LineId Id="83" Count="0" />
-      <LineId Id="290" Count="0" />
-      <LineId Id="297" Count="0" />
-      <LineId Id="289" Count="0" />
-      <LineId Id="299" Count="0" />
-      <LineId Id="298" Count="0" />
-      <LineId Id="311" Count="1" />
-      <LineId Id="314" Count="0" />
-      <LineId Id="319" Count="1" />
+      <LineId Id="357" Count="0" />
+      <LineId Id="369" Count="0" />
+      <LineId Id="358" Count="1" />
+      <LineId Id="361" Count="3" />
+      <LineId Id="372" Count="3" />
+      <LineId Id="365" Count="1" />
       <LineId Id="88" Count="0" />
       <LineId Id="2" Count="0" />
     </LineIds>
