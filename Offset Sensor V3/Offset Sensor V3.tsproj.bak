@@ -63,7 +63,7 @@
 			</SubItem>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000001}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..0] OF BIT</Name>
+			<Name GUID="{18071995-0000-0000-0000-002000000001}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..0] OF BIT</Name>
 			<BitSize>1</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
@@ -72,7 +72,7 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
+			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
 			<BitSize>4</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
@@ -92,14 +92,14 @@
 				<IoIdleTask CycleTime="500000"/>
 			</Settings>
 			<Tasks>
-				<Task Id="3" Priority="20" CycleTime="50000" AmsPort="350" AdtTasks="true">
+				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
 					<Name>PlcTask</Name>
 				</Task>
 			</Tasks>
 		</System>
 		<Plc>
 			<Project GUID="{2C7CD9C0-8B42-4860-B2BB-5C51CA0C7280}" Name="Untitled1" PrjFilePath="Untitled1\Untitled1.plcproj" TmcFilePath="Untitled1\Untitled1.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Untitled1\Untitled1.tmc" TmcHash="{09043EDC-2D15-F524-D00A-47AF285D8282}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Untitled1\Untitled1.tmc" TmcHash="{0212DCC5-35DA-7621-DFB2-86956DB81C48}">
 					<Name>Untitled1 Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -180,7 +180,7 @@
 								<OTCID>#x02010030</OTCID>
 							</ManualConfig>
 							<Priority>20</Priority>
-							<CycleTime>5000000</CycleTime>
+							<CycleTime>10000000</CycleTime>
 						</Context>
 					</Contexts>
 					<TaskPouOids>
@@ -212,8 +212,8 @@
 						<EtherCAT SlaveType="7" PdiType="#x0005" MboxDataLinkLayer="true" CycleMBoxPolling="true" CoeType="7" FoeType="1" VendorId="#x00000002" ProductCode="#x17853052" RevisionNo="#x00160000" InfoDataAddr="true" RepeatSupport="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" SdoUploadWithMaxLength="true" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6021 Interface (RS422/485)" Desc="EL6021" PortABoxInfo="#x01000001">
 							<SyncMan>0018f6002600010001000000f600f600f600001826010000</SyncMan>
 							<SyncMan>f618f6002200010002000000f600f600f600f61822010000</SyncMan>
-							<SyncMan>001018002400010003000000000000001800001024010000</SyncMan>
-							<SyncMan>001418002000010004000000000000001800001420010000</SyncMan>
+							<SyncMan>001064002400010003000000000000001800001024010000</SyncMan>
+							<SyncMan>001464002000010004000000000000001800001420010000</SyncMan>
 							<Fmmu>0000000000000000001000020100000001000000000000000000000000000000</Fmmu>
 							<Fmmu>0000000000000000001400010100000002000000000000000000000000000000</Fmmu>
 							<BootStrapData>0010f400f410f400</BootStrapData>
@@ -223,12 +223,8 @@
 							<MBoxUserCmdData>020003000a00000008000000030000000000000000000000000000000000000020734000020000000600426175647261746500</MBoxUserCmdData>
 							<MBoxUserCmdData>0200030009000000280000000300000000000000000000000000000000000000200080070100000000456e61626c6520706f696e7420746f20706f696e7420636f6e6e656374696f6e202852533432322900</MBoxUserCmdData>
 							<MBoxUserCmdData>0200030009000000280000000300000000000000000000000000000000000000207540040100000000456e61626c6520706f696e7420746f20706f696e7420636f6e6e656374696f6e202852533432322900</MBoxUserCmdData>
+							<MBoxUserCmdData>0200030009000000200000000300000000000000000000000000000000000000207540050100000000456e61626c652073656e64204649464f206461746120636f6e74696e756f757300</MBoxUserCmdData>
 							<Pdo Name="TxPDO-Map Inputs" Index="#x1a00" Flags="#x0010">
-								<ExcludePdo>#x1a01</ExcludePdo>
-								<ExcludePdo>#x1a02</ExcludePdo>
-								<ExcludePdo>#x1a04</ExcludePdo>
-								<ExcludePdo>#x1a05</ExcludePdo>
-								<ExcludePdo>#x1a06</ExcludePdo>
 								<Entry Name="Status" Index="#x3101" Sub="#x01">
 									<Type>USINT</Type>
 								</Entry>
@@ -243,11 +239,6 @@
 								</Entry>
 							</Pdo>
 							<Pdo Name="TxPDO-Map Inputs" Index="#x1a01" Flags="#x0010">
-								<ExcludePdo>#x1a00</ExcludePdo>
-								<ExcludePdo>#x1a02</ExcludePdo>
-								<ExcludePdo>#x1a04</ExcludePdo>
-								<ExcludePdo>#x1a05</ExcludePdo>
-								<ExcludePdo>#x1a06</ExcludePdo>
 								<Entry Name="Status" Index="#x3102" Sub="#x01">
 									<Type>USINT</Type>
 								</Entry>
@@ -268,11 +259,6 @@
 								</Entry>
 							</Pdo>
 							<Pdo Name="TxPDO-Map Inputs" Index="#x1a02" Flags="#x0010">
-								<ExcludePdo>#x1a00</ExcludePdo>
-								<ExcludePdo>#x1a01</ExcludePdo>
-								<ExcludePdo>#x1a04</ExcludePdo>
-								<ExcludePdo>#x1a05</ExcludePdo>
-								<ExcludePdo>#x1a06</ExcludePdo>
 								<Entry Name="Status" Index="#x3103" Sub="#x01">
 									<Type>UINT</Type>
 								</Entry>
@@ -343,37 +329,32 @@
 									<Type>USINT</Type>
 								</Entry>
 							</Pdo>
-							<Pdo Name="COM TxPDO-Map Inputs" Index="#x1a04" Flags="#x0010" SyncMan="3">
-								<ExcludePdo>#x1a00</ExcludePdo>
-								<ExcludePdo>#x1a01</ExcludePdo>
-								<ExcludePdo>#x1a02</ExcludePdo>
-								<ExcludePdo>#x1a05</ExcludePdo>
-								<ExcludePdo>#x1a06</ExcludePdo>
-								<Entry Name="Status__Transmit accepted" Index="#x6000" Sub="#x01">
+							<Pdo Name="COM TxPDO-Map Inputs" Index="#x1a04" Flags="#x0010">
+								<Entry Name="Transmit accepted" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Receive request" Index="#x6000" Sub="#x02">
+								<Entry Name="Receive request" Index="#x6000" Sub="#x02">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Init accepted" Index="#x6000" Sub="#x03">
+								<Entry Name="Init accepted" Index="#x6000" Sub="#x03">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Buffer full" Index="#x6000" Sub="#x04">
+								<Entry Name="Buffer full" Index="#x6000" Sub="#x04">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Parity error" Index="#x6000" Sub="#x05">
+								<Entry Name="Parity error" Index="#x6000" Sub="#x05">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Framing error" Index="#x6000" Sub="#x06">
+								<Entry Name="Framing error" Index="#x6000" Sub="#x06">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Overrun error" Index="#x6000" Sub="#x07">
+								<Entry Name="Overrun error" Index="#x6000" Sub="#x07">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__">
+								<Entry>
 									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
 								</Entry>
-								<Entry Name="Status__Input length" Index="#x6000" Sub="#x09">
+								<Entry Name="Input length" Index="#x6000" Sub="#x09">
 									<Type>USINT</Type>
 								</Entry>
 								<Entry Name="Data In 0" Index="#x6000" Sub="#x11">
@@ -444,36 +425,31 @@
 								</Entry>
 							</Pdo>
 							<Pdo Name="COM ext. inputs" Index="#x1a05" Flags="#x0010">
-								<ExcludePdo>#x1a00</ExcludePdo>
-								<ExcludePdo>#x1a01</ExcludePdo>
-								<ExcludePdo>#x1a02</ExcludePdo>
-								<ExcludePdo>#x1a04</ExcludePdo>
-								<ExcludePdo>#x1a06</ExcludePdo>
-								<Entry Name="Status__Transmit accepted" Index="#x6001" Sub="#x01">
+								<Entry Name="Transmit accepted" Index="#x6001" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Receive request" Index="#x6001" Sub="#x02">
+								<Entry Name="Receive request" Index="#x6001" Sub="#x02">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Init accepted" Index="#x6001" Sub="#x03">
+								<Entry Name="Init accepted" Index="#x6001" Sub="#x03">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Buffer full" Index="#x6001" Sub="#x04">
+								<Entry Name="Buffer full" Index="#x6001" Sub="#x04">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Parity error" Index="#x6001" Sub="#x05">
+								<Entry Name="Parity error" Index="#x6001" Sub="#x05">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Framing error" Index="#x6001" Sub="#x06">
+								<Entry Name="Framing error" Index="#x6001" Sub="#x06">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Overrun error" Index="#x6001" Sub="#x07">
+								<Entry Name="Overrun error" Index="#x6001" Sub="#x07">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__">
+								<Entry>
 									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
 								</Entry>
-								<Entry Name="Status__Input length" Index="#x6001" Sub="#x09">
+								<Entry Name="Input length" Index="#x6001" Sub="#x09">
 									<Type>USINT</Type>
 								</Entry>
 								<Entry Name="Data In 0" Index="#x6001" Sub="#x11">
@@ -627,37 +603,32 @@
 									<Type>UINT</Type>
 								</Entry>
 							</Pdo>
-							<Pdo Name="COM TxPDO-Map Input 98 Byte" Index="#x1a06" Flags="#x0010">
-								<ExcludePdo>#x1a00</ExcludePdo>
-								<ExcludePdo>#x1a01</ExcludePdo>
-								<ExcludePdo>#x1a02</ExcludePdo>
-								<ExcludePdo>#x1a04</ExcludePdo>
-								<ExcludePdo>#x1a05</ExcludePdo>
-								<Entry Name="Status__Transmit accepted" Index="#x6000" Sub="#x01">
+							<Pdo Name="COM TxPDO-Map Input 98 Byte" Index="#x1a06" Flags="#x0010" SyncMan="3">
+								<Entry Name="Transmit accepted" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Receive request" Index="#x6000" Sub="#x02">
+								<Entry Name="Receive request" Index="#x6000" Sub="#x02">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Init accepted" Index="#x6000" Sub="#x03">
+								<Entry Name="Init accepted" Index="#x6000" Sub="#x03">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Buffer full" Index="#x6000" Sub="#x04">
+								<Entry Name="Buffer full" Index="#x6000" Sub="#x04">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Parity error" Index="#x6000" Sub="#x05">
+								<Entry Name="Parity error" Index="#x6000" Sub="#x05">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Framing error" Index="#x6000" Sub="#x06">
+								<Entry Name="Framing error" Index="#x6000" Sub="#x06">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__Overrun error" Index="#x6000" Sub="#x07">
+								<Entry Name="Overrun error" Index="#x6000" Sub="#x07">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Status__">
+								<Entry>
 									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
 								</Entry>
-								<Entry Name="Status__Input length" Index="#x6000" Sub="#x09">
+								<Entry Name="Input length" Index="#x6000" Sub="#x09">
 									<Type>USINT</Type>
 								</Entry>
 								<Entry Name="Data In 0" Index="#x6000" Sub="#x11">
@@ -956,11 +927,6 @@
 								</Entry>
 							</Pdo>
 							<Pdo Name="RxPDO-Map Outputs" Index="#x1600" InOut="1" Flags="#x0010">
-								<ExcludePdo>#x1601</ExcludePdo>
-								<ExcludePdo>#x1602</ExcludePdo>
-								<ExcludePdo>#x1604</ExcludePdo>
-								<ExcludePdo>#x1605</ExcludePdo>
-								<ExcludePdo>#x1606</ExcludePdo>
 								<Entry Name="Ctrl" Index="#x3001" Sub="#x01">
 									<Type>USINT</Type>
 								</Entry>
@@ -975,11 +941,6 @@
 								</Entry>
 							</Pdo>
 							<Pdo Name="RxPDO-Map Outputs" Index="#x1601" InOut="1" Flags="#x0010">
-								<ExcludePdo>#x1600</ExcludePdo>
-								<ExcludePdo>#x1602</ExcludePdo>
-								<ExcludePdo>#x1604</ExcludePdo>
-								<ExcludePdo>#x1605</ExcludePdo>
-								<ExcludePdo>#x1606</ExcludePdo>
 								<Entry Name="Ctrl" Index="#x3002" Sub="#x01">
 									<Type>USINT</Type>
 								</Entry>
@@ -1000,11 +961,6 @@
 								</Entry>
 							</Pdo>
 							<Pdo Name="RxPDO-Map Outputs" Index="#x1602" InOut="1" Flags="#x0010">
-								<ExcludePdo>#x1600</ExcludePdo>
-								<ExcludePdo>#x1601</ExcludePdo>
-								<ExcludePdo>#x1604</ExcludePdo>
-								<ExcludePdo>#x1605</ExcludePdo>
-								<ExcludePdo>#x1606</ExcludePdo>
 								<Entry Name="Ctrl" Index="#x3003" Sub="#x01">
 									<Type>UINT</Type>
 								</Entry>
@@ -1075,28 +1031,23 @@
 									<Type>USINT</Type>
 								</Entry>
 							</Pdo>
-							<Pdo Name="COM RxPDO-Map Outputs" Index="#x1604" InOut="1" Flags="#x0010" SyncMan="2">
-								<ExcludePdo>#x1600</ExcludePdo>
-								<ExcludePdo>#x1601</ExcludePdo>
-								<ExcludePdo>#x1602</ExcludePdo>
-								<ExcludePdo>#x1605</ExcludePdo>
-								<ExcludePdo>#x1606</ExcludePdo>
-								<Entry Name="Ctrl__Transmit request" Index="#x7000" Sub="#x01">
+							<Pdo Name="COM RxPDO-Map Outputs" Index="#x1604" InOut="1" Flags="#x0010">
+								<Entry Name="Transmit request" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__Receive accepted" Index="#x7000" Sub="#x02">
+								<Entry Name="Receive accepted" Index="#x7000" Sub="#x02">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__Init request" Index="#x7000" Sub="#x03">
+								<Entry Name="Init request" Index="#x7000" Sub="#x03">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__Send continues" Index="#x7000" Sub="#x04">
+								<Entry Name="Send continues" Index="#x7000" Sub="#x04">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__">
+								<Entry>
 									<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__Output length" Index="#x7000" Sub="#x09">
+								<Entry Name="Output length" Index="#x7000" Sub="#x09">
 									<Type>USINT</Type>
 								</Entry>
 								<Entry Name="Data Out 0" Index="#x7000" Sub="#x11">
@@ -1167,27 +1118,22 @@
 								</Entry>
 							</Pdo>
 							<Pdo Name="COM ext. outputs" Index="#x1605" InOut="1" Flags="#x0010">
-								<ExcludePdo>#x1600</ExcludePdo>
-								<ExcludePdo>#x1601</ExcludePdo>
-								<ExcludePdo>#x1602</ExcludePdo>
-								<ExcludePdo>#x1604</ExcludePdo>
-								<ExcludePdo>#x1606</ExcludePdo>
-								<Entry Name="Ctrl__Transmit request" Index="#x7001" Sub="#x01">
+								<Entry Name="Transmit request" Index="#x7001" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__Receive accepted" Index="#x7001" Sub="#x02">
+								<Entry Name="Receive accepted" Index="#x7001" Sub="#x02">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__Init request" Index="#x7001" Sub="#x03">
+								<Entry Name="Init request" Index="#x7001" Sub="#x03">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__Send continuous" Index="#x7001" Sub="#x04">
+								<Entry Name="Send continuous" Index="#x7001" Sub="#x04">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__">
+								<Entry>
 									<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__Output length" Index="#x7001" Sub="#x09">
+								<Entry Name="Output length" Index="#x7001" Sub="#x09">
 									<Type>USINT</Type>
 								</Entry>
 								<Entry Name="Data Out 0" Index="#x7001" Sub="#x11">
@@ -1341,28 +1287,23 @@
 									<Type>UINT</Type>
 								</Entry>
 							</Pdo>
-							<Pdo Name="COM RxPDO-Map Output 98 Byte" Index="#x1606" InOut="1" Flags="#x0010">
-								<ExcludePdo>#x1600</ExcludePdo>
-								<ExcludePdo>#x1601</ExcludePdo>
-								<ExcludePdo>#x1602</ExcludePdo>
-								<ExcludePdo>#x1604</ExcludePdo>
-								<ExcludePdo>#x1605</ExcludePdo>
-								<Entry Name="Ctrl__Transmit request" Index="#x7000" Sub="#x01">
+							<Pdo Name="COM RxPDO-Map Output 98 Byte" Index="#x1606" InOut="1" Flags="#x0010" SyncMan="2">
+								<Entry Name="Transmit request" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__Receive accepted" Index="#x7000" Sub="#x02">
+								<Entry Name="Receive accepted" Index="#x7000" Sub="#x02">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__Init request" Index="#x7000" Sub="#x03">
+								<Entry Name="Init request" Index="#x7000" Sub="#x03">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__Send continues" Index="#x7000" Sub="#x04">
+								<Entry Name="Send continues" Index="#x7000" Sub="#x04">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__">
+								<Entry>
 									<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
 								</Entry>
-								<Entry Name="Ctrl__Output length" Index="#x7000" Sub="#x09">
+								<Entry Name="Output length" Index="#x7000" Sub="#x09">
 									<Type>USINT</Type>
 								</Entry>
 								<Entry Name="Data Out 0" Index="#x7000" Sub="#x11">
@@ -1695,64 +1636,43 @@
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500820000403}" Id="#x02030010"/>
 		<OwnerA Name="TIPC^Untitled1^Untitled1 Instance">
 			<OwnerB Name="TIID^Device 3 (EtherCAT)^Term 1 (EK1100)^Term 2 (EL6021)">
-				<Link VarA="PlcTask Inputs^MAIN.Bf" VarB="COM TxPDO-Map Inputs^Status^Buffer full"/>
-				<Link VarA="PlcTask Inputs^MAIN.Fe" VarB="COM TxPDO-Map Inputs^Status^Framing error"/>
-				<Link VarA="PlcTask Inputs^MAIN.Ia" VarB="COM TxPDO-Map Inputs^Status^Init accepted"/>
-				<Link VarA="PlcTask Inputs^MAIN.Il" VarB="COM TxPDO-Map Inputs^Status^Input length"/>
-				<Link VarA="PlcTask Inputs^MAIN.Oe" VarB="COM TxPDO-Map Inputs^Status^Overrun error"/>
-				<Link VarA="PlcTask Inputs^MAIN.Pe" VarB="COM TxPDO-Map Inputs^Status^Parity error"/>
-				<Link VarA="PlcTask Inputs^MAIN.Rr" VarB="COM TxPDO-Map Inputs^Status^Receive request"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[0]" VarB="COM TxPDO-Map Inputs^Data In 0"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[10]" VarB="COM TxPDO-Map Inputs^Data In 10"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[11]" VarB="COM TxPDO-Map Inputs^Data In 11"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[12]" VarB="COM TxPDO-Map Inputs^Data In 12"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[13]" VarB="COM TxPDO-Map Inputs^Data In 13"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[14]" VarB="COM TxPDO-Map Inputs^Data In 14"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[15]" VarB="COM TxPDO-Map Inputs^Data In 15"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[16]" VarB="COM TxPDO-Map Inputs^Data In 16"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[17]" VarB="COM TxPDO-Map Inputs^Data In 17"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[18]" VarB="COM TxPDO-Map Inputs^Data In 18"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[19]" VarB="COM TxPDO-Map Inputs^Data In 19"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[1]" VarB="COM TxPDO-Map Inputs^Data In 1"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[20]" VarB="COM TxPDO-Map Inputs^Data In 20"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[21]" VarB="COM TxPDO-Map Inputs^Data In 21"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[2]" VarB="COM TxPDO-Map Inputs^Data In 2"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[3]" VarB="COM TxPDO-Map Inputs^Data In 3"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[4]" VarB="COM TxPDO-Map Inputs^Data In 4"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[5]" VarB="COM TxPDO-Map Inputs^Data In 5"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[6]" VarB="COM TxPDO-Map Inputs^Data In 6"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[7]" VarB="COM TxPDO-Map Inputs^Data In 7"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[8]" VarB="COM TxPDO-Map Inputs^Data In 8"/>
-				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[9]" VarB="COM TxPDO-Map Inputs^Data In 9"/>
-				<Link VarA="PlcTask Inputs^MAIN.Status" VarB="COM TxPDO-Map Inputs^Status"/>
-				<Link VarA="PlcTask Inputs^MAIN.Ta" VarB="COM TxPDO-Map Inputs^Status^Transmit accepted"/>
-				<Link VarA="PlcTask Outputs^MAIN.Ir" VarB="COM RxPDO-Map Outputs^Ctrl^Init request"/>
-				<Link VarA="PlcTask Outputs^MAIN.Ol" VarB="COM RxPDO-Map Outputs^Ctrl^Output length"/>
-				<Link VarA="PlcTask Outputs^MAIN.Ra" VarB="COM RxPDO-Map Outputs^Ctrl^Receive accepted"/>
-				<Link VarA="PlcTask Outputs^MAIN.Sc" VarB="COM RxPDO-Map Outputs^Ctrl^Send continues"/>
-				<Link VarA="PlcTask Outputs^MAIN.Tr" VarB="COM RxPDO-Map Outputs^Ctrl^Transmit request"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[0]" VarB="COM RxPDO-Map Outputs^Data Out 0"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[10]" VarB="COM RxPDO-Map Outputs^Data Out 10"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[11]" VarB="COM RxPDO-Map Outputs^Data Out 11"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[12]" VarB="COM RxPDO-Map Outputs^Data Out 12"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[13]" VarB="COM RxPDO-Map Outputs^Data Out 13"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[14]" VarB="COM RxPDO-Map Outputs^Data Out 14"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[15]" VarB="COM RxPDO-Map Outputs^Data Out 15"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[16]" VarB="COM RxPDO-Map Outputs^Data Out 16"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[17]" VarB="COM RxPDO-Map Outputs^Data Out 17"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[18]" VarB="COM RxPDO-Map Outputs^Data Out 18"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[19]" VarB="COM RxPDO-Map Outputs^Data Out 19"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[1]" VarB="COM RxPDO-Map Outputs^Data Out 1"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[20]" VarB="COM RxPDO-Map Outputs^Data Out 20"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[21]" VarB="COM RxPDO-Map Outputs^Data Out 21"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[2]" VarB="COM RxPDO-Map Outputs^Data Out 2"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[3]" VarB="COM RxPDO-Map Outputs^Data Out 3"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[4]" VarB="COM RxPDO-Map Outputs^Data Out 4"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[5]" VarB="COM RxPDO-Map Outputs^Data Out 5"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[6]" VarB="COM RxPDO-Map Outputs^Data Out 6"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[7]" VarB="COM RxPDO-Map Outputs^Data Out 7"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[8]" VarB="COM RxPDO-Map Outputs^Data Out 8"/>
-				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[9]" VarB="COM RxPDO-Map Outputs^Data Out 9"/>
+				<Link VarA="PlcTask Inputs^MAIN.Bf" VarB="COM TxPDO-Map Input 98 Byte^Buffer full"/>
+				<Link VarA="PlcTask Inputs^MAIN.Fe" VarB="COM TxPDO-Map Input 98 Byte^Framing error"/>
+				<Link VarA="PlcTask Inputs^MAIN.Ia" VarB="COM TxPDO-Map Input 98 Byte^Init accepted"/>
+				<Link VarA="PlcTask Inputs^MAIN.Il" VarB="COM TxPDO-Map Input 98 Byte^Input length"/>
+				<Link VarA="PlcTask Inputs^MAIN.Oe" VarB="COM TxPDO-Map Input 98 Byte^Overrun error"/>
+				<Link VarA="PlcTask Inputs^MAIN.Pe" VarB="COM TxPDO-Map Input 98 Byte^Parity error"/>
+				<Link VarA="PlcTask Inputs^MAIN.Rr" VarB="COM TxPDO-Map Input 98 Byte^Receive request"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[0]" VarB="COM TxPDO-Map Input 98 Byte^Data In 0"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[10]" VarB="COM TxPDO-Map Input 98 Byte^Data In 10"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[11]" VarB="COM TxPDO-Map Input 98 Byte^Data In 11"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[12]" VarB="COM TxPDO-Map Input 98 Byte^Data In 12"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[13]" VarB="COM TxPDO-Map Input 98 Byte^Data In 13"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[14]" VarB="COM TxPDO-Map Input 98 Byte^Data In 14"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[15]" VarB="COM TxPDO-Map Input 98 Byte^Data In 15"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[16]" VarB="COM TxPDO-Map Input 98 Byte^Data In 16"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[17]" VarB="COM TxPDO-Map Input 98 Byte^Data In 17"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[18]" VarB="COM TxPDO-Map Input 98 Byte^Data In 18"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[19]" VarB="COM TxPDO-Map Input 98 Byte^Data In 19"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[1]" VarB="COM TxPDO-Map Input 98 Byte^Data In 1"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[20]" VarB="COM TxPDO-Map Input 98 Byte^Data In 20"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[21]" VarB="COM TxPDO-Map Input 98 Byte^Data In 21"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[2]" VarB="COM TxPDO-Map Input 98 Byte^Data In 2"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[3]" VarB="COM TxPDO-Map Input 98 Byte^Data In 3"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[4]" VarB="COM TxPDO-Map Input 98 Byte^Data In 4"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[5]" VarB="COM TxPDO-Map Input 98 Byte^Data In 5"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[6]" VarB="COM TxPDO-Map Input 98 Byte^Data In 6"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[7]" VarB="COM TxPDO-Map Input 98 Byte^Data In 7"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[8]" VarB="COM TxPDO-Map Input 98 Byte^Data In 8"/>
+				<Link VarA="PlcTask Inputs^MAIN.RxBuffer^Buffer[9]" VarB="COM TxPDO-Map Input 98 Byte^Data In 9"/>
+				<Link VarA="PlcTask Inputs^MAIN.Ta" VarB="COM TxPDO-Map Input 98 Byte^Transmit accepted"/>
+				<Link VarA="PlcTask Outputs^MAIN.Ir" VarB="COM RxPDO-Map Output 98 Byte^Init request"/>
+				<Link VarA="PlcTask Outputs^MAIN.Ol" VarB="COM RxPDO-Map Output 98 Byte^Output length"/>
+				<Link VarA="PlcTask Outputs^MAIN.Ra" VarB="COM RxPDO-Map Output 98 Byte^Receive accepted"/>
+				<Link VarA="PlcTask Outputs^MAIN.Sc" VarB="COM RxPDO-Map Output 98 Byte^Send continues"/>
+				<Link VarA="PlcTask Outputs^MAIN.Tr" VarB="COM RxPDO-Map Output 98 Byte^Transmit request"/>
+				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[0]" VarB="COM RxPDO-Map Output 98 Byte^Data Out 0"/>
+				<Link VarA="PlcTask Outputs^MAIN.TxBuffer^Buffer[1]" VarB="COM RxPDO-Map Output 98 Byte^Data Out 1"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>

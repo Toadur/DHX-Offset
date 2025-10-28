@@ -12,6 +12,7 @@ VAR
 	ReceiveD : ReceiveData;
 	TxBuffer AT %Q* : ComBuffer;
 	RxBuffer AT %I* : ComBuffer;
+	LatestValue AT %I* : BYTE;
 	Status AT %I*: UINT;
 	Ta AT %I* : BOOL;
 	Rr AT %I* : BOOL;
@@ -29,6 +30,8 @@ VAR
 	SCounter : INT; 
 	RCounter : INT := 0;
 	I : INT;
+	OldRR : BOOL := Rr;
+	FbClearBuffer  : ClearComBuffer;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -65,19 +68,18 @@ END_VAR
 	ComState.WaitForTransmit:
 		IF Ta THEN
 			State := ComState.WaitForReceive;
-		(**ELSE
-			Tr := FALSE;
-			State := ComState.Send;**)
 		END_IF
 		
 	ComState.WaitForReceive:
-		ADSLOGSTR(msgCtrlMask := ADSLOG_MSGTYPE_ERROR OR ADSLOG_MSGTYPE_LOG,
-				msgFmtStr := 'Log %s',
-				strArg := 'Data received');
-	
-		IF Rr THEN
-			Ra := TRUE;				
-			State := ComState.Recv;
+		
+		IF Bf OR NOT RxBuffer.Buffer[21] = 0 THEN
+			State := ComState.ClearBuffer;
+		ELSE 
+			IF NOT Rr = OldRR THEN
+				OldRR := Rr;
+				Ra := TRUE;				
+				State := ComState.Recv;
+			END_IF
 		END_IF
 		
 	ComState.Recv:
@@ -85,9 +87,19 @@ END_VAR
 		State := ComState.Process;
 		
 	ComState.Process:
+		ADSLOGSTR(msgCtrlMask := ADSLOG_MSGTYPE_ERROR OR ADSLOG_MSGTYPE_LOG,
+				msgFmtStr := 'Log %s',
+				strArg := 'Data received');
+		IF Bf OR NOT RxBuffer.Buffer[21] = 0 THEN
+			State := ComState.ClearBuffer;
+		ELSE 
+			State := ComState.WaitForReceive;	
+		END_IF
 		
-		State := ComState.Recv;	
-		// MEMSET(destAddr := ADR(RxBuffer), fillByte := 0, n := SIZEOF(RxBuffer));
+	ComState.ClearBuffer:
+		
+		FbClearBuffer(Buffer := RxBuffer);
+		State := ComState.WaitForReceive;
 				
 END_CASE]]></ST>
     </Implementation>
@@ -115,23 +127,30 @@ END_CASE]]></ST>
       <LineId Id="114" Count="0" />
       <LineId Id="198" Count="0" />
       <LineId Id="200" Count="1" />
-      <LineId Id="203" Count="1" />
-      <LineId Id="216" Count="2" />
-      <LineId Id="205" Count="0" />
+      <LineId Id="203" Count="2" />
       <LineId Id="202" Count="0" />
       <LineId Id="178" Count="0" />
-      <LineId Id="221" Count="1" />
-      <LineId Id="219" Count="1" />
-      <LineId Id="186" Count="0" />
-      <LineId Id="179" Count="0" />
-      <LineId Id="187" Count="0" />
-      <LineId Id="176" Count="0" />
+      <LineId Id="294" Count="0" />
+      <LineId Id="302" Count="0" />
+      <LineId Id="304" Count="1" />
+      <LineId Id="307" Count="3" />
+      <LineId Id="306" Count="0" />
+      <LineId Id="300" Count="0" />
       <LineId Id="113" Count="0" />
       <LineId Id="50" Count="1" />
       <LineId Id="56" Count="0" />
       <LineId Id="100" Count="0" />
-      <LineId Id="82" Count="2" />
-      <LineId Id="252" Count="0" />
+      <LineId Id="82" Count="0" />
+      <LineId Id="282" Count="1" />
+      <LineId Id="83" Count="0" />
+      <LineId Id="290" Count="0" />
+      <LineId Id="297" Count="0" />
+      <LineId Id="289" Count="0" />
+      <LineId Id="299" Count="0" />
+      <LineId Id="298" Count="0" />
+      <LineId Id="311" Count="1" />
+      <LineId Id="314" Count="0" />
+      <LineId Id="319" Count="1" />
       <LineId Id="88" Count="0" />
       <LineId Id="2" Count="0" />
     </LineIds>
